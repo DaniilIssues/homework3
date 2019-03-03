@@ -45,6 +45,7 @@ def get_command(menu):
     else:
         return -1
 
+
 def delete():
     global database
     if len(database) == 0:
@@ -53,8 +54,18 @@ def delete():
     for i in database:
         database.remove(i)
 
-menu = ["Add", "Print", "Save", "Load", "Delete", "Exit"]
-commands = [add, print_data, save, load, delete, exit]
+
+def calculate():
+    global database
+    if len(database) == 0:
+        print("No data")
+    i = sum(database)
+
+    print(i)
+
+
+menu = ["Add", "Print","Calculate sum", "Save", "Load", "Delete", "Exit"]
+commands = [add, print_data, calculate, save, load, delete, exit]
 
 while True:
     print_menu(menu)
@@ -65,3 +76,4 @@ while True:
         continue
 
     commands[command - 1]()
+
